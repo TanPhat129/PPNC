@@ -89,8 +89,14 @@ def load_data(file_path):
         return data
 
 # Tải dữ liệu
-file_path = "C:/Users/ADMIN/Downloads/disaster-in-vietnam_1900-to-2024.xlsx"
-data = load_data(file_path)
+url = "https://raw.githubusercontent.com/TanPhat129/PPNC/main/disaster-in-vietnam_1900-to-2024.xlsx"
+
+# Hàm load dữ liệu
+def load_data(url):
+    return pd.read_excel(url)
+
+# Gọi hàm load
+data = load_data(url)
 
 # Lọc dữ liệu thiên tai tự nhiên (Flood hoặc Storm)
 data = data[data['Disaster Group'] == 'Natural']
